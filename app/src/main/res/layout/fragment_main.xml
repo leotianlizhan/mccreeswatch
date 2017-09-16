@@ -1,0 +1,45 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="something.mccreewatch.MainFragment">
+    <pl.droidsonroids.gif.GifImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:scaleType="centerInside"
+        android:adjustViewBounds="true"
+        android:id="@+id/imgv_gif"/>
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/btnMccree"
+        android:layout_below="@id/imgv_gif"
+        android:id="@+id/btn_mccree"
+        android:layout_centerHorizontal="true"
+        android:textSize="18sp"
+        style="@style/Widget.AppCompat.Button.Colored" />
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="80dp"
+        android:text="@string/btnMccreeVoiceOnly"
+        android:layout_below="@id/btn_mccree"
+        android:textAllCaps="false"
+        android:id="@+id/btn_mccree_spam"
+        android:layout_centerHorizontal="true"
+        android:textSize="18sp"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"/>
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="80dp"
+        android:text="Random"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/btn_random"
+        android:textSize="18sp"
+        android:visibility="gone"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"/>
+</RelativeLayout>
