@@ -1,13 +1,19 @@
 package something.mccreewatch;
 
 
+import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
 public class GridViewAdapter extends BaseAdapter{
+    private final Context ctx;
+    private final SbButton[] buttons;
 
-
+    public GridViewAdapter(Context ctx, SbButton[] buttons) {
+        this.ctx = ctx;
+        this.buttons = buttons;
+    }
 
     @Override
     public int getCount() {

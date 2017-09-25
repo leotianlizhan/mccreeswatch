@@ -13,6 +13,7 @@ import android.os.CountDownTimer;
 import android.os.Handler;
 import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -65,6 +66,7 @@ public class MainFragment extends Fragment {
             }
         });
 
+        // set up sound pool
         createSoundPool();
         durationMccree = getSoundDuration(R.raw.mccree);
         durationMccreeVoiceOnly = getSoundDuration(R.raw.mccree_voiceonly);
@@ -77,13 +79,15 @@ public class MainFragment extends Fragment {
             }
         });
 
+        // set up gif
         try {
             gifDrawable = new GifDrawable(getResources(), R.drawable.mccree_meme);
-        }catch (Exception e){};
+        }catch (Exception e){
+            Log.e("Gif", "Declaring new gifDrawable failed");
+        };
         GifImageView gifImageView = (GifImageView)v.findViewById(R.id.imgv_gif);
         gifDrawable.stop();
         gifImageView.setImageDrawable(gifDrawable);
-
 
         timerRunnable = new Runnable() {
             @Override
@@ -91,7 +95,6 @@ public class MainFragment extends Fragment {
                 gifDrawable.stop();
             }
         };
-
 
         return v;
     }
@@ -129,8 +132,7 @@ public class MainFragment extends Fragment {
 
     private int getSoundDuration(int rawID){
         MediaPlayer player = MediaPlayer.create(getContext(), rawID);
-        int duration = player.getDuration();
-        return duration;
+        return player.getDuration();
     }
 
 }
