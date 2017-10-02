@@ -5,20 +5,23 @@ import android.media.AudioAttributes;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.os.Build;
+import android.util.Log;
+import android.widget.Toast;
 
 public class SbButton {
-    private final int name;
+    private final String name;
     private final int imageResource;
     private final int soundResource;
-    private static SoundPool soundPool;
     private int soundID;
+    private SoundPool soundPool;
     private boolean loaded = false;
 
-    public SbButton(int name, int imageResource, int soundResource, Context ctx) {
+    public SbButton(String name, int imageResource, int soundResource, Context ctx, SoundPool soundPool) {
         this.name = name;
         this.imageResource = imageResource;
         this.soundResource = soundResource;
-        soundID = soundPool.load(ctx, R.raw.mccree, 1);
+        this.soundPool = soundPool;
+        soundID = soundPool.load(ctx, soundResource, 1);
         soundPool.setOnLoadCompleteListener(new SoundPool.OnLoadCompleteListener() {
             @Override
             public void onLoadComplete(SoundPool soundPool, int sampleId, int status) {
@@ -27,7 +30,17 @@ public class SbButton {
         });
     }
 
-    public int getName() {
+    public void playSound(){
+        Log.d("Soundboard", "playSound() called");
+//        if(!loaded){
+//            Toast.makeText(temp, "Please wait for sounds to load", Toast.LENGTH_SHORT).show();
+//            return;
+//        }
+        soundPool.play(soundID, 1, 1, 1, 0, 1f);
+        Log.d("Soundboard", "Sound played successfully");
+    }
+
+    public String getName() {
         return name;
     }
 
@@ -37,19 +50,5 @@ public class SbButton {
 
     public int getSoundResource() {
         return soundResource;
-    }
-    public static final void Builder(){
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
-            AudioAttributes attributes = new AudioAttributes.Builder()
-                    .setUsage(AudioAttributes.USAGE_MEDIA)
-                    .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
-                    .build();
-            soundPool = new SoundPool.Builder()
-                    .setAudioAttributes(attributes)
-                    .setMaxStreams(12)
-                    .build();
-        }else{
-            soundPool = new SoundPool(6, AudioManager.STREAM_MUSIC,0);
-        }
     }
 }

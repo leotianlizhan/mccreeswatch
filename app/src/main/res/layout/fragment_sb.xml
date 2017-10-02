@@ -4,14 +4,15 @@
     android:layout_height="match_parent"
     tools:context="something.mccreewatch.SbFragment">
 
-
     <GridView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/gridView"
+        android:layout_height="wrap_content"
+        android:id="@+id/gridview"
         android:numColumns="2"
-        android:verticalSpacing="4dp"
-        android:horizontalSpacing="4dp"
-        android:gravity="center"/>
+        android:verticalSpacing="1dp"
+        android:horizontalSpacing="1dp"
+        android:gravity="center"
+        android:drawSelectorOnTop="true"
+        android:paddingBottom="?attr/actionBarSize"/>
 
 </FrameLayout>

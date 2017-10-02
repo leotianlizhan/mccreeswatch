@@ -28,6 +28,7 @@ public class CreditsFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_credits, container, false);
         TextView txtCredits = (TextView) v.findViewById(R.id.txt_credits);
         txtCredits.setMovementMethod(LinkMovementMethod.getInstance());
+        getActivity().setTitle("Credits");
         return v;
     }
 

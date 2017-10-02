@@ -65,12 +65,24 @@ public class MainFragment extends Fragment {
                 playSoundMccreeVoiceOnly(v);
             }
         });
+        Button btnSoundboard = (Button)v.findViewById(R.id.btn_soundboard);
+        btnSoundboard.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                ((MainActivity)getActivity()).navigate(R.id.nav_soundboard);
+            }
+        });
+        getActivity().setTitle("McCree's Watch");
 
         // set up sound pool
         createSoundPool();
         durationMccree = getSoundDuration(R.raw.mccree);
         durationMccreeVoiceOnly = getSoundDuration(R.raw.mccree_voiceonly);
         soundID = soundPool.load(getContext(), R.raw.mccree, 1);
+        Log.d("R.raw.mccree", Integer.toString(R.raw.mccree));
+        Log.d("soundID", Integer.toString(soundID));
         soundIDVoiceOnly = soundPool.load(getContext(), R.raw.mccree_voiceonly, 1);
         soundPool.setOnLoadCompleteListener(new SoundPool.OnLoadCompleteListener() {
             @Override

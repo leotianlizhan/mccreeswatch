@@ -1,8 +1,11 @@
 package something.mccreewatch;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -12,11 +15,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, SbFragment.OnFragmentInteractionListener {
 
+    private int curFragmentId = -1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,7 +35,6 @@ public class MainActivity extends AppCompatActivity
                 getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.fragment_container, fragment);
         fragmentTransaction.commit();
-        setTitle("McCree's Watch");
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -80,28 +84,39 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_main) {
-            MainFragment fragment = new MainFragment();
-            android.support.v4.app.FragmentTransaction fragmentTransaction =
-                    getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.fragment_container, fragment);
-            fragmentTransaction.commit();
-            setTitle("McCree's Watch");
-        } else if (id == R.id.nav_soundboard) {
-            Toast.makeText(MainActivity.this, "Future features to come", Toast.LENGTH_SHORT).show();
-        } else if (id == R.id.nav_widget) {
-            Toast.makeText(MainActivity.this, "Future features to come", Toast.LENGTH_SHORT).show();
-        } else if (id == R.id.nav_credits) {
-            CreditsFragment fragment = new CreditsFragment();
-            android.support.v4.app.FragmentTransaction fragmentTransaction =
-                    getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.fragment_container, fragment);
-            fragmentTransaction.commit();
-            setTitle("Credits");
-        }
+        navigate(id);
 
+        // Close nav drawer
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+    public void navigate(int id){
+        if(curFragmentId == id) return;
+        Fragment fragment = null;
+        if (id == R.id.nav_main) {
+            fragment = new MainFragment();
+        } else if (id == R.id.nav_soundboard) {
+            fragment = SbFragment.newInstance("1", "2");
+        } else if (id == R.id.nav_widget) {
+            Toast.makeText(MainActivity.this, "Future features to come", Toast.LENGTH_SHORT).show();
+        } else if (id == R.id.nav_credits) {
+            fragment = new CreditsFragment();
+        }
+
+        if(fragment != null){
+            android.support.v4.app.FragmentTransaction fragmentTransaction =
+                    getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.fragment_container, fragment);
+            // very crude back button handling for fragments
+            // TODO: Make back button handling
+            fragmentTransaction.addToBackStack("tag").commit();
+            curFragmentId = id;
+        }
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+        // for fragment communications, leave empty for now
     }
 }

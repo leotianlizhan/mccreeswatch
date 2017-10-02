@@ -1,18 +1,24 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="something.mccreewatch.CreditsFragment">
+    tools:context="something.mccreewatch.CreditsFragment"
+    android:orientation="vertical"
+    android:padding="15dp">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Artists Credits"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:textAppearance="?android:attr/textAppearanceLarge"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/txt_credits"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_centerVertical="true"
-        android:gravity="center_vertical"
-        android:layout_margin="10dp"
         android:text="@string/credits"/>
 
 
-</FrameLayout>
+</LinearLayout>
