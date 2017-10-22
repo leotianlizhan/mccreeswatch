@@ -10,5 +10,13 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="credits">I did NOT create the pictures used in this app. All the respect to them. Here are the sources: \n\n u/Evillisa: \n<a href="http://dandycalamity.tumblr.com/post/144607199546/its">http://dandycalamity.tumblr.com/post/144607199546/its</a>\n\nu/Bacon_timeGO:\n<a href="http://imgur.com/a/B2TnJ">http://imgur.com/a/B2TnJ</a>\n\nu/FirmCheddar:\n<a href="http://imgur.com/a/WJMVe">http://imgur.com/a/WJMVe</a></string>
+    <string name="credits">
+        I did NOT create the pictures used in this app. All the respect to them. Here are the sources: \n\n
+        u/Evillisa: \n<a href="http://dandycalamity.tumblr.com/post/144607199546/its">http://dandycalamity.tumblr.com/post/144607199546/its</a>\n\n
+        u/Bacon_timeGO:\n<a href="http://imgur.com/a/B2TnJ">http://imgur.com/a/B2TnJ</a>\n\n
+        u/FirmCheddar:\n<a href="http://imgur.com/a/WJMVe">http://imgur.com/a/WJMVe</a>
+    </string>
+    <string name="widget_instruction">
+        "To add the widget, long-press home screen and select the McCree\'s Watch Widget."
+    </string>
 </resources>
