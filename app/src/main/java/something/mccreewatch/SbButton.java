@@ -31,13 +31,13 @@ public class SbButton {
     }
 
     public void playSound(){
-        Log.d("Soundboard", "playSound() called");
+        // Log.d("Soundboard", "playSound() called");
 //        if(!loaded){
 //            Toast.makeText(temp, "Please wait for sounds to load", Toast.LENGTH_SHORT).show();
 //            return;
 //        }
         soundPool.play(soundID, 1, 1, 1, 0, 1f);
-        Log.d("Soundboard", "Sound played successfully");
+        // Log.d("Soundboard", "Sound played successfully");
     }
 
     public String getName() {

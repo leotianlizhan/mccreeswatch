@@ -74,6 +74,15 @@ public class MainFragment extends Fragment {
                 ((MainActivity)getActivity()).navigate(R.id.nav_soundboard);
             }
         });
+        Button btnWidget = (Button)v.findViewById(R.id.btn_widget);
+        btnWidget.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                ((MainActivity)getActivity()).navigate(R.id.nav_widget);
+            }
+        });
         getActivity().setTitle("McCree's Watch");
 
         // set up sound pool
