@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity
     private SbButton[] sbButtons;
     private SoundPool soundPool;
     private NavigationView navigationView;
+    public static final int numButtons = 25;
 
     public void soundPoolBuilder(){
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
@@ -46,7 +47,7 @@ public class MainActivity extends AppCompatActivity
             soundPool = new SoundPool(6, AudioManager.STREAM_MUSIC,0);
         }
         // add all the sounds
-        sbButtons = new SbButton[25];
+        sbButtons = new SbButton[numButtons];
         Context ctx = this;
         sbButtons[0] = new SbButton("Tracer", R.drawable.sb_tracer, R.raw.sb_tracer_1, ctx, soundPool);
         sbButtons[1] = new SbButton("Winston", R.drawable.sb_winston, R.raw.sb_winston_1, ctx, soundPool);

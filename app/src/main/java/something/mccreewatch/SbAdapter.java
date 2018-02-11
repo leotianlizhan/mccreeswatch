@@ -22,7 +22,7 @@ public class SbAdapter extends BaseAdapter{
 
     @Override
     public int getCount() {
-        return buttons.length;
+        return MainActivity.numButtons;
     }
 
     @Override

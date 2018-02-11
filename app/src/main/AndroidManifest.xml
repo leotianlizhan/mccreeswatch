@@ -21,7 +21,7 @@
             </intent-filter>
         </activity>
         <!-- Clock Widget -->
-        <receiver android:name=".ClockWidget" android:label="Custom Clock Widget">
+        <receiver android:name=".ClockWidget" android:label="McCree's Watch">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
             </intent-filter>
