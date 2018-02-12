@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity
     private SbButton[] sbButtons;
     private SoundPool soundPool;
     private NavigationView navigationView;
-    public static final int numButtons = 25;
+    public static final int numButtons = 26;
 
     public void soundPoolBuilder(){
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
@@ -74,6 +74,7 @@ public class MainActivity extends AppCompatActivity
         sbButtons[22] = new SbButton("Symmetra", R.drawable.sb_symmetra, R.raw.sb_symmetra_1, ctx, soundPool);
         sbButtons[23] = new SbButton("Zenyatta", R.drawable.sb_zenyatta, R.raw.sb_zenyatta_1, ctx, soundPool);
         sbButtons[24] = new SbButton("Doomfist", R.drawable.sb_doomfist, R.raw.sb_doomfist_1, ctx, soundPool);
+        sbButtons[25] = new SbButton("Moira", R.drawable.sb_moira, R.raw.sb_moira_1, ctx, soundPool);
     }
 
     public SbButton[] getSbButtons(){
