@@ -7,12 +7,12 @@ android {
         applicationId "something.mccreewatch"
         minSdkVersion 18
         targetSdkVersion 33
-        versionCode 8
+        versionCode 9
         versionName "1.2.3"
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
